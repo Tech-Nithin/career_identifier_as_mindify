@@ -1,0 +1,282 @@
+.about {
+  width: 100%;
+}
+
+.about__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 128px 40px;
+}
+
+/* ===== IMAGE COLUMN ===== */
+.about__image-col {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+.about__badge--tablet {
+  display: none;
+  /* shows on tablet only */
+  margin-bottom: 16px;
+}
+
+.about__image-box {
+  position: relative;
+  width: 100%;
+  height: 376px;
+  border-radius: 18px;
+  overflow: visible;
+  box-shadow: var(--shadow-card);
+  z-index: 1;
+}
+
+.about__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  display: block;
+}
+
+/* Signature bar */
+.about__signature-bar {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 8px 8px;
+  z-index: 1;
+}
+
+.about__signature {
+  font-family: 'Give You Glory', cursive;
+  font-size: 20px;
+  line-height: 1em;
+  text-align: center;
+  color: var(--color-brown-btn);
+  white-space: nowrap;
+  /* The original uses a link color style override */
+  --framer-link-text-color: #09f;
+  --framer-link-text-decoration: underline;
+}
+
+/* Social buttons */
+.about__social-btn {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 160px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 2;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.about__social-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.1);
+}
+
+.about__social-btn--linkedin {
+  /* Original: top: 60px; left: 15px */
+  top: 60px;
+  left: 15px;
+}
+
+.about__social-btn--mail {
+  /* Original: top: 15px; left: 15px */
+  top: 15px;
+  left: 15px;
+}
+
+/* ===== CONTENT COLUMN ===== */
+.about__content {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  z-index: 1;
+}
+
+.about__badge--desktop {
+  /* shows always except hidden when on tablet (tablet uses image-col badge) */
+}
+
+.about__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.about__heading {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+  line-height: 1.1em;
+  color: var(--color-dark);
+  max-width: 596px;
+}
+
+.about__desc {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: var(--color-gray);
+  max-width: 500px;
+}
+
+/* Certifications */
+.about__certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.about__cert-pill {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px 6px 8px;
+  background: var(--color-white);
+  border-radius: var(--radius-badge);
+  box-shadow: var(--shadow-card);
+}
+
+.about__cert-text {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  order: 1;
+}
+
+.about__cert-pill svg {
+  order: 0;
+  opacity: 0.25;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .about__wrapper {
+    max-width: 810px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 128px 40px 64px;
+  }
+
+  .about__image-col {
+    width: 100%;
+    flex: none;
+  }
+
+  .about__image-box {
+    height: 320px;
+  }
+
+  .about__content {
+    flex: none;
+    width: 100%;
+  }
+
+  .about__badge--tablet {
+    display: flex;
+  }
+
+  .about__badge--desktop {
+    display: none;
+  }
+
+  .about__heading {
+    font-size: 38px;
+  }
+
+  /* Signature smaller on tablet */
+  .about__signature {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 809px) {
+  .about__wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 64px 16px;
+    max-width: 500px;
+  }
+
+  .about__image-col {
+    flex: none;
+    width: 100%;
+  }
+
+  .about__image-box {
+    height: auto;
+    min-height: 280px;
+  }
+
+  .about__content {
+    flex: none;
+    width: 100%;
+    align-items: center;
+  }
+
+  .about__badge--desktop {
+    display: none;
+  }
+
+  .about__badge--tablet {
+    display: flex;
+  }
+
+  .about__heading {
+    font-size: 31px;
+    text-align: center;
+  }
+
+  .about__desc {
+    font-size: 16px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .about__certs {
+    justify-content: center;
+  }
+
+  /* Signature smaller on mobile */
+  .about__signature {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,259 @@
+/* ===== HERO SECTION ===== */
+.hero {
+  width: 100%;
+}
+
+.hero__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 128px 40px;
+}
+
+/* ===== LEFT ===== */
+.hero__left {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.hero__badge {
+  /* opacity animated by JS, starts at 0.001 */
+}
+
+/* Word-by-word reveal animation */
+.hero__word {
+  display: inline-block;
+  opacity: 0.001;
+  transform: translateY(10px);
+  animation: wordReveal 0.5s ease forwards;
+}
+
+@keyframes wordReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.hero__heading {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 72px;
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1.1em;
+  color: var(--color-dark);
+  text-align: left;
+}
+
+.hero__desc {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: var(--color-gray);
+  text-align: left;
+}
+
+/* ===== RIGHT ===== */
+.hero__right {
+  width: 55%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.hero__image-box {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  border-radius: 18px;
+  overflow: visible;
+  box-shadow: var(--shadow-card);
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 18px;
+  display: block;
+}
+
+/* ===== FLOATING BLURRY BADGES ===== */
+/* These are the glassmorphism badges from the original - "Blurry" variant */
+.hero__float-badge {
+  position: absolute;
+  padding: 6px 16px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  box-shadow:
+    inset 3px 3px 15px 5px rgba(255, 255, 255, 0.15),
+    inset -3px -3px 15px 5px rgba(217, 217, 217, 0.15);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Continuous floating animation - each badge floats independently */
+.hero__float--caring {
+  /* top: 48%; left: 38px; transform: translateY(-50%) from original */
+  top: 48%;
+  left: 38px;
+  transform: translateY(-50%) translateY(-8px);
+  animation: floatCaringBadge 3s ease-in-out infinite;
+}
+
+.hero__float--confidential {
+  bottom: 43px;
+  left: 157px;
+  animation: floatOtherBadge 3s ease-in-out 1s infinite;
+}
+
+.hero__float--convenient {
+  top: 52px;
+  left: 119px;
+  animation: floatOtherBadge 3s ease-in-out 2s infinite;
+}
+
+@keyframes floatCaringBadge {
+
+  0%,
+  100% {
+    transform: translateY(calc(-50% - 8px));
+  }
+
+  50% {
+    transform: translateY(calc(-50% + 0px));
+  }
+}
+
+@keyframes floatOtherBadge {
+
+  0%,
+  100% {
+    transform: translateY(-8px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet 810–1199px */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .hero__wrapper {
+    max-width: 810px;
+    padding: 128px 40px;
+  }
+
+  .hero__right {
+    width: 50%;
+  }
+
+  .hero__image-box {
+    height: 400px;
+  }
+
+  .hero__heading {
+    font-size: 58px;
+  }
+
+  .hero__desc {
+    font-size: 14px;
+  }
+
+  .hero__float--caring {
+    left: 31px;
+  }
+
+  .hero__float--convenient {
+    left: 51px;
+  }
+}
+
+/* Mobile ≤809px */
+@media (max-width: 809px) {
+  .hero__wrapper {
+    flex-direction: column;
+    gap: 64px;
+    padding: 96px 16px 64px;
+    align-items: center;
+  }
+
+  .hero__left {
+    flex: none;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero__heading {
+    font-size: 46px;
+    text-align: center;
+  }
+
+  .hero__desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero__text-group {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero__right {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .hero__image-box {
+    height: 350px;
+  }
+
+  /* Repositioned on mobile */
+  .hero__float--caring {
+    bottom: 38px;
+    left: 53px;
+    top: auto;
+    transform: translateY(-6px);
+    animation: floatOtherBadge 3s ease-in-out infinite;
+  }
+
+  .hero__float--confidential {
+    bottom: 119px;
+    left: auto;
+    right: 45px;
+  }
+
+  .hero__float--convenient {
+    top: 38px;
+    left: 38px;
+  }
+}

@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Give+You+Glory&display=swap');
+
+:root {
+  --color-dark: #262626;
+  --color-gray: #575757;
+  --color-brown-primary: #5c3535; /* Exact Mindify Match */
+  --color-white: #ffffff;
+  --color-bg: #f7f7f5; /* Premium Off-White */
+  --color-orange: #fd9d6d;
+  --shadow-card: 0 8px 32px rgba(173, 173, 173, 0.12);
+  --radius-card: 18px;
+  --radius-badge: 16px;
+  --radius-btn: 24px;
+  --font-satoshi: 'Satoshi', 'Arial', sans-serif;
+  --font-glory: 'Give You Glory', cursive;
+  --font-inter: 'Inter', sans-serif;
+
+  /* Stacking Layers */
+  --z-nav: 100;
+  --z-hero: 1;
+  --z-about: 10;
+  --z-stats: 20;
+  --z-services: 30;
+  --z-howitworks: 40;
+  --z-testimonials: 50;
+  --z-cta: 60;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-satoshi);
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-smoothing: grayscale;
+}
+
+/* Lenis Smooth Scroll Support */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Premium Typography - Satoshi & Inter Parity */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/fonts/download/satoshi?display=swap') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/fonts/download/satoshi?display=swap') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: var(--color-white);
+  border-radius: var(--radius-badge);
+  box-shadow: var(--shadow-card);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-orange);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 8px;
+  background: var(--color-brown-primary);
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  color: var(--color-white);
+  font-family: var(--font-satoshi);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 128px 40px;
+}
+
+h1 {
+  font-family: var(--font-satoshi);
+  font-size: 72px;
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1.1em;
+  color: var(--color-dark);
+}
+
+h2 {
+  font-family: var(--font-satoshi);
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+  line-height: 1.1em;
+  color: var(--color-dark);
+}
+
+h3 {
+  font-family: var(--font-satoshi);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2em;
+  color: var(--color-dark);
+}
+
+p {
+  font-family: var(--font-satoshi);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: var(--color-gray);
+}
+
+@media (max-width: 1199px) and (min-width: 810px) {
+  h1 { font-size: 58px; }
+  h2 { font-size: 38px; }
+  h3 { font-size: 36px; }
+  p { font-size: 14px; }
+  .section-wrapper { padding: 64px 40px; }
+}
+
+@media (max-width: 809px) {
+  h1 { font-size: 46px; }
+  h2 { font-size: 31px; }
+  h3 { font-size: 20px; }
+  p { font-size: 16px; }
+  .section-wrapper { padding: 64px 16px; }
+}

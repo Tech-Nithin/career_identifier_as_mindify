@@ -1,0 +1,143 @@
+.stats-section {
+  width: 100%;
+}
+
+.stats-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Background */
+.stats-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.stats-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.13;
+}
+
+.stats-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-brown);
+  opacity: 0.02;
+  border-radius: 18px;
+}
+
+/* Content */
+.stats-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 48px 40px;
+}
+
+.stat-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stat-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-col:nth-child(2) .stat-item { transition-delay: 0.15s; }
+.stat-col:nth-child(3) .stat-item { transition-delay: 0.3s; }
+
+.stat-value {
+  font-family: var(--font-satoshi);
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1.1em;
+  color: var(--color-brown-primary);
+  text-align: center;
+}
+
+.stat-label {
+  font-family: var(--font-satoshi);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2em;
+  color: var(--color-dark);
+  text-align: center;
+  max-width: 331px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 80px;
+  background: var(--color-white);
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 809px) {
+  .stats-wrapper {
+    padding: 0 16px;
+    max-width: 500px;
+  }
+
+  .stats-content {
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+    height: 485px;
+  }
+
+  .stat-col {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .stat-divider {
+    width: 75%;
+    height: 1px;
+  }
+
+  .stat-value {
+    font-size: 41px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 810px) and (max-width: 1199px) {
+  .stats-content {
+    gap: 16px;
+  }
+
+  .stat-value {
+    font-size: 51px;
+  }
+}
